@@ -56,26 +56,13 @@ var UserSchema = new Schema({
         trim: true,
         required: 'User Name required'
     },
+    
     photo: {
         type: String,
-        default: 'http://www.ee-ip.org/sites/default/files/default_images/default-user.png',
-        trim: true
-    },
-    description: {
-        type: String,
         default: '',
         trim: true
     },
-    linkedin: {
-        type: String,
-        default: '',
-        trim: true
-    },
-    twitter: {
-        type: String,
-        default: '',
-        trim: true
-    },
+    
     password: {
         type: String,
         default: '',

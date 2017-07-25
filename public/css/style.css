@@ -36,15 +36,15 @@ body{
     position: absolute;
 }*/
 
-#gameSlider img.one{
-    animation: 5s fade infinite;
-}
-#gameSlider img.two{
-    animation: 10s fade infinite;
-}
-#gameSlider img.three{
-    animation: 15s fade infinite;
-}
+/*#gameSlider img.one{*/
+/*    animation: 5s fade infinite;*/
+/*}*/
+/*#gameSlider img.two{*/
+/*    animation: 10s fade infinite;*/
+/*}*/
+/*#gameSlider img.three{*/
+/*    animation: 15s fade infinite;*/
+/*}*/
 
 @keyframes fade {
   0% {
