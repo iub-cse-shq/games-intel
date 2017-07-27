@@ -19,15 +19,15 @@ var GameSchema = {
     type: String,
     default: '',
     trim: true,
-    required: 'Description required'
+    // required: 'Description required'
+    required:''
 
   },
 
   rating: {
-    type: Number,
+    type: String,
     default: null,
     required: ''
-
   },
   
   studio_name: {
@@ -37,30 +37,30 @@ var GameSchema = {
     required: ''
   },
   
-  developer_name: {
-    type: String,
-    default: '',
-    trim: true,
-    required: ''
-  },
+  // developer_name: {
+  //   type: String,
+  //   default: '',
+  //   trim: true,
+  //   required: ''
+  // },
   
   release_date: {
-    type: Date,
+    // type: Date,
+    type:String,
+    trim:true
   },
   
   genre: {
     type: String,
     default: '',
     required: 'Genre required'
-
   },
   
-  audience_rating: {
-    type: Number,
-    default: null,
-    required: ''
-
-  },
+  // audience_rating: {
+  //   type: Number,
+  //   default: null,
+  //   required: ''
+  // },
 
   created: {
     type: Date,

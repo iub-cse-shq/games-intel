@@ -10,6 +10,13 @@ exports.index = function(req, res) {
 	});
 };
 
+exports.admin = function(req, res) {
+	res.render('./../public/views/admin.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
+
 exports.about = function(req, res) {
 	res.render('./../about.ejs', {
 		user: req.user || null,
