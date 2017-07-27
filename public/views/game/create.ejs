@@ -11,11 +11,11 @@
         <input type="file" name="fileToUpload" id="fileToUpload"></br>
         </br>
         <p>Enter game title:</p>
-        <input type="text" id="gameName"></br>
+        <input type="text" id="title"></br>
         </br>
         Enter a description:
         </br>
-        <textarea rows="4" cols="50">Game Description</textarea>
+        <textarea rows="4" cols="50" id="description">Game Description</textarea>
         </br>Enter rating:</br>
         <select id="rating">
             <option value="null">---</option>
@@ -28,9 +28,9 @@
             <option value="rp">Rating Pending</option>
         </select>
         </br>Developer Name:</br>
-        <input type="text" id="devName">
+        <input type="text" id="developer_name">
         </br>Release Date:</br>
-        <input type="text" id="rDate">
+        <input type="date" id="release_date">
         </br>Genre</br>
         <select id="genre">
             <option value="null">---</option>
@@ -48,8 +48,8 @@
         </br></br><input type="submit" value="Done" id="doneButton" name="doneButton">
     </div>
 
-    <!--<script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>-->
-    <!--<script type="text/javascript" src="public/Javascripts/Admin.js"></script>-->
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/views/Javascripts/Admin.js"></script>
 </body>
 
 </html>

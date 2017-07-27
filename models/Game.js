@@ -30,23 +30,23 @@ var GameSchema = {
     required: ''
   },
   
-  studio_name: {
-    type: String,
-    default: '',
-    trim: true,
-    required: ''
-  },
-  
-  // developer_name: {
+  // studio_name: {
   //   type: String,
   //   default: '',
   //   trim: true,
   //   required: ''
   // },
   
+  developer_name: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  
   release_date: {
-    // type: Date,
-    type:String,
+    type: Date,
+    // type:String,
     trim:true
   },
   
