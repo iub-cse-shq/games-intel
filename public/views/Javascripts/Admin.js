@@ -1,7 +1,8 @@
 
 var Game=
-{
+{   
     title:"",
+    imgURL:"",
     description:"",
     rating:"",
     developer_name:"",
@@ -10,6 +11,7 @@ var Game=
 }
 
 $('#doneButton').click(function (e) {
+    Game.imageURL=$("#image").val();
     Game.title=$("#title").val();
     Game.description=$("#description").val();
     Game.rating=$("#rating").val();
@@ -17,11 +19,12 @@ $('#doneButton').click(function (e) {
     Game.release_date=$("#release_date").val();
     Game.genre=$("#genre").val();
     
-    // console.log("Game Title: "+Game.title);
-    // console.log("Game Description: "+Game.description);
-    // console.log("Game Developer Name: "+Game.developer_name);
-    // console.log("Game Release Date: "+Game.release_date);
-    // console.log("Game Genre: "+Game.genre);
+    console.log("Game image url: "+Game.imgURL);
+    console.log("Game Title: "+Game.title);
+    console.log("Game Description: "+Game.description);
+    console.log("Game Developer Name: "+Game.developer_name);
+    console.log("Game Release Date: "+Game.release_date);
+    console.log("Game Genre: "+Game.genre);
     $.ajax({
       method:"POST",
       url:'/api/games',

@@ -25,6 +25,21 @@ module.exports.list = function(req, res) {
   });
 };
 
+module.exports.list = function(req, res) {
+  Game.find(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      console.log("api called");
+
+      res.status(200).send(data);
+    }
+  });
+};
+
 module.exports.create = function(req, res) {
   var game = new Game(req.body);
   game.user = req.user;
@@ -69,6 +84,28 @@ module.exports.update = function(req, res) {
   			res.json(game);
   		}
   	});
+};
+
+module.exports.listByGenre = function(req, res){
+  console.log(req.params);
+  console.log(req.params.genre);
+   Game.find({genre:req.params.genre},function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      console.log("api called");
+
+      res.render('./../public/views/game/viewGames.ejs', {
+    		user: req.user || null,
+    		request: req,
+    		games: data
+    	});
+    }
+  });
+  
 };
 
 exports.gameByID = function(req, res, next, id) {

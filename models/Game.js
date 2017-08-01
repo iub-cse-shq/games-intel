@@ -9,7 +9,7 @@ var GameSchema = {
     required: 'Title required'
   },
   
-  photo: {
+  imageURL: {
     type: String,
     default: '',
     trim: true
