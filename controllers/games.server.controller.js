@@ -87,8 +87,8 @@ module.exports.update = function(req, res) {
 };
 
 module.exports.listByGenre = function(req, res){
-  console.log(req.params);
-  console.log(req.params.genre);
+  // console.log(req.params);
+  // console.log(req.params.genre);
    Game.find({genre:req.params.genre},function(err, data) {
     if (err) {
       return res.status(400).send({
@@ -105,7 +105,6 @@ module.exports.listByGenre = function(req, res){
     	});
     }
   });
-  
 };
 
 exports.gameByID = function(req, res, next, id) {

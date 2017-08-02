@@ -19,12 +19,12 @@ $('#doneButton').click(function (e) {
     Game.release_date=$("#release_date").val();
     Game.genre=$("#genre").val();
     
-    console.log("Game image url: "+Game.imgURL);
-    console.log("Game Title: "+Game.title);
-    console.log("Game Description: "+Game.description);
-    console.log("Game Developer Name: "+Game.developer_name);
-    console.log("Game Release Date: "+Game.release_date);
-    console.log("Game Genre: "+Game.genre);
+    // console.log("Game image url: "+Game.imgURL);
+    // console.log("Game Title: "+Game.title);
+    // console.log("Game Description: "+Game.description);
+    // console.log("Game Developer Name: "+Game.developer_name);
+    // console.log("Game Release Date: "+Game.release_date);
+    // console.log("Game Genre: "+Game.genre);
     $.ajax({
       method:"POST",
       url:'/api/games',
