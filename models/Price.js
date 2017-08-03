@@ -2,21 +2,21 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var PriceSchema = {
 
-  game: {
+  gameID: {
     type: Schema.ObjectId,
     ref: 'Game'
   },
   
-  store: {
+  storeID: {
     type: Schema.ObjectId,
     ref: 'Store'
   },
   
   price:{
-    type:String,
-    default: '',
+    type:Number,
+    default: 0,
     trim: true,
-    required: ''
+    // required: ''
   },
   
   created: {
