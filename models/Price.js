@@ -7,11 +7,18 @@ var PriceSchema = {
     ref: 'Game'
   },
   
-  game: {
+  store: {
     type: Schema.ObjectId,
     ref: 'Store'
   },
-
+  
+  price:{
+    type:String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  
   created: {
     type: Date,
     default: Date.now
