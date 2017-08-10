@@ -4,8 +4,9 @@
 <head>
     <!--<script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>-->
     <body>
-
-        <input type="hidden" id="userid" name="country" value="<%=user._id%>">
+        
+        <% if (user) { %> <input type="hidden" id="userid" name="country" value="<%=user._id%>"> <% } %>
+        
         <div id="loginBar">
             <% if (user) { %> <h3 id="username" style="color:black;text-decoration:none;float:left;"><%=user.username %></h3> <% } %>
             <ul>
