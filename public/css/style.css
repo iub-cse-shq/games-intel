@@ -5,6 +5,31 @@ body{
     text-align: right;
 }
 
+#vendorLogin{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#vendorLogin ul{
+    list-style-type: none;
+    background: #ecf0f1;
+    padding: 5px;
+}
+
+#vendorLogin li{
+    display: inline;
+    padding: 10px;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#vendorLogin li:hover{
+    background-color:#95a5a6;
+}
+
 #logo{
     text-align: center;
 }
@@ -91,6 +116,14 @@ opacity:0;
     font-family: Courier New, Courier, monospace;
     font-weight: bold;
     font-size: 20px;
+}
+
+#username{
+    padding: 15px;
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: -5px;
 }
 
 #navbar li:hover{

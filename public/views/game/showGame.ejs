@@ -1,0 +1,108 @@
+<!DOCTYPE html5>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title><%=request.title%></title>
+    <!-- General META -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="/css/showGame.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body>
+    <div id="loginBar">
+            <ul>
+                <li><a href="/signup" >Sign Up</a></li>
+            </ul>
+        </div>
+
+        <div id="logo">
+             <a href="/"><img src="/img/logo.png"></a>
+        </div>
+
+        <div id="navBar">
+            <ul>
+            <li><a  href="../games/all/action" style="color:black;text-decoration:none" id="genre">ACTION</a></li>
+            <li><a  href="../games/all/adventure" style="color:black;text-decoration:none">ADVENTURE</a></li>
+            <li><a href="../games/all/horror" style="color:black;text-decoration:none">HORROR</a></li>
+            <li><a href="../games/all/rpg" style="color:black;text-decoration:none">RPG</a></li>
+            <li><a href="../games/all/fps" style="color:black;text-decoration:none">FPS</a></li>
+            <li><a href="../games/all/simulation" style="color:black;text-decoration:none">SIMULATION</a></li>
+            <li><a href="../games/all/sports" style="color:black;text-decoration:none">SPORTS</a></li>
+            <li><a href="../games/all/indie" style="color:black;text-decoration:none">INDIE</a></li>
+            <li><a href="../games/all/racing" style="color:black;text-decoration:none">RACING</a></li>
+            <li><a href="../games/all/fighting" style="color:black;text-decoration:none">FIGHTING</a></li>
+            </ul>
+        </div>
+        
+        
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="login-container">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text"><%=request.title%></h2>
+      </div>
+      <div class="mdl-card__supporting-text" id="text-container">
+        
+          <img src="<%= request.imageURL %>"></img>
+          <p><%= request.description%></p>
+          <h4>Rating: <span style="text-transform: uppercase;"><%= request.rating%></span></h4>
+          <h4>Developer: <span><%= request.developer_name%></span></h4>
+          <h4>Genre: <span><%= request.genre%></span></h4>
+      </div> 
+      
+    </div>
+    
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="login-container">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Store Prices</h2>
+      </div>
+      <div class="mdl-card__supporting-text" id="text-container">
+
+      </div> 
+      
+    </div>
+    
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="login-container">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Comments</h2>
+      </div>
+      <div class="mdl-card__supporting-text" id="text-container">
+
+      </div> 
+      
+    </div>
+    
+    <% if (user) { %> 
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="login-container">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Comments</h2>
+      </div>
+      <div class="mdl-card__supporting-text" id="text-container">
+
+      </div> 
+      
+    </div>
+    <% } else { %> 
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="login-container">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Comments</h2>
+      </div>
+      <div class="mdl-card__supporting-text" id="text-container">
+        <h5>Sign in to Comment</h5>
+      </div> 
+      
+    </div>
+    <% } %>
+    
+    
+        
+    
+  </body>
+  <script src="/lib/jquery/dist/jquery.min.js"></script>
+  <script src="/vendor/ejs_production.js"></script>
+
+</html>

@@ -1,18 +1,21 @@
   var addGame=
 {   
     gameID:"",
-    // storeID:"",
+    storeID:"",
     price:""
 }
 
 $(".addButton").click(function(){
+    alert("test");
     var gameId=$(this).parent().attr("id");
+    var userID= user._id;
     var gamePrice=$(this).siblings().val();
     console.log(gameId);
     console.log(gamePrice);
+    console.log("6666666" + userID);
     
     addGame.gameID=gameId;
-    // addGame.storeID
+    addGame.storeID = userID;
     addGame.price=gamePrice;
     
     if(gamePrice>0)

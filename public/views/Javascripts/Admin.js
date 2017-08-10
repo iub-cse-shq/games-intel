@@ -1,4 +1,3 @@
-
 var Game=
 {   
     title:"",
@@ -10,7 +9,10 @@ var Game=
     genre:""
 }
 
+var newGame;
+
 $('#doneButton').click(function (e) {
+    
     Game.imageURL=$("#image").val();
     Game.title=$("#title").val();
     Game.description=$("#description").val();
@@ -19,21 +21,47 @@ $('#doneButton').click(function (e) {
     Game.release_date=$("#release_date").val();
     Game.genre=$("#genre").val();
     
+    $.ajax({
+      method:"GET",
+      url:'/api/games',
+    }).done(function(response){
+        console.log(response);
+        newGame=true;
+        for(var i=0;i<response.length;i++)
+        {
+            if(response[i].title==Game.title && response[i].genre==Game.genre)
+            {   
+                newGame=false;
+                break;
+            }
+        }
+        
+        if(newGame==false)$("#errorMessage").css('visibility', 'visible');
+        else addNewGame();
+
+    }).fail(function(response){
+        $("#errorMessage").css('visibility', 'visible');
+        console.log("This is the problem: " + JSON.parse(response.responseText).message);
+    });
+    
     // console.log("Game image url: "+Game.imgURL);
     // console.log("Game Title: "+Game.title);
     // console.log("Game Description: "+Game.description);
     // console.log("Game Developer Name: "+Game.developer_name);
     // console.log("Game Release Date: "+Game.release_date);
     // console.log("Game Genre: "+Game.genre);
+})
+
+function addNewGame() {
     $.ajax({
       method:"POST",
       url:'/api/games',
       data: Game
     }).done(function(response){
       console.log(response);
-    //   window.location.replace("/products/"+response._id);
+      alert("Game Added");
     }).fail(function(response){
-    //   $("#error").text(JSON.parse(response.responseText).message);
+        $("#errorMessage").css('visibility', 'visible');
         console.log("This is the problem: " + JSON.parse(response.responseText).message);
     });
-})
+}

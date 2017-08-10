@@ -63,6 +63,11 @@ var UserSchema = new Schema({
         trim: true
     },
     
+    vendor: {
+        type: Boolean,
+        default: false
+    },
+    
     password: {
         type: String,
         default: '',

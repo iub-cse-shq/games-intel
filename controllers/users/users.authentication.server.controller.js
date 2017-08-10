@@ -7,7 +7,8 @@ var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	Store = mongoose.model('Store');
 
 /**
  * Signup
@@ -18,7 +19,20 @@ exports.signup = function(req, res) {
 
 	// Init Variables
 	var user = new User(req.body);
-	var message = null;
+	var message = null
+	
+	console.log(user._id);
+	
+	if (user.vendor == true){
+		var x = String(user._id);
+		var store = new Store({userID: x});
+		console.log(store._id);
+		store.save(function (err) {
+		  if (err);
+			console.log(err);
+		})
+
+	}
 
 	// Add missing user fields
 	user.provider = 'local';
@@ -59,6 +73,7 @@ exports.signin = function(req, res, next) {
 			req.login(user, function(err) {
 				if (err) {
 					res.status(400).send(err);
+					debugger;
 				} else {
 					res.json(user);
 				}
@@ -74,15 +89,22 @@ exports.signinView = function(req, res) {
 	});
 };
 
+exports.signupView = function(req, res) {
+	res.render('./../public/views/user/signup.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
+
 /**
  * Signout
  */
 exports.signout = function(req, res) {
 	req.logout(function(){
-		if(err){
-		}
+		
 	});
-	res.status(200).send({message:"signed out"});
+	console.log("signed out");
+    return res.redirect('/');
 };
 
 /**

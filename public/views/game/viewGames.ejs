@@ -4,15 +4,18 @@
 <head>
     <!--<script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>-->
     <body>
+
+        <input type="hidden" id="userid" name="country" value="<%=user._id%>">
         <div id="loginBar">
+            <% if (user) { %> <h3 id="username" style="color:black;text-decoration:none;float:left;"><%=user.username %></h3> <% } %>
             <ul>
-                <li><a href="/admin" style="color:black;text-decoration:none">Login</a></li>
-                <li>Sign Up</li>
+                <% if (user) { %> <li><a href="/auth/signout" style="color:black;text-decoration:none">Log Out</a></li> <% } else { %> <li><a href="/signin" style="color:black;text-decoration:none">Sign In</a></li> <% } %>
+                <li><a href="/signup" style="color:black;text-decoration:none">Sign Up</a></li>
             </ul>
         </div>
 
         <div id="logo">
-            <img src="/img/logo.png">
+            <a href="/"><img src="/img/logo.png"></a>
         </div>
 
         <div id="navBar">
@@ -32,26 +35,62 @@
         
         <div>
         <% 
-        var theUser="vendor"
         
             for(var i=0; i<games.length; i++) { %>
             <div style="margin: 5px; border: 3px solid grey; float: left;">
-                
-                <div style="font-family:Consolas; font-size:15px; font-weight:bold; text-align:center"><%=games[i].title%></div>
-                <img style="height:270px; width:200px;" src="<%=games[i].imageURL%>">
-                <% 
-                if(theUser=="vendor")
-                { %>
-                    <div id="<%=games[i]._id%>" style="text-align:center;">Price:<input type="number" style="border: 2px solid black; width:100px" id="gamePrice"><input class="addButton" type="submit" value="Add"></div>
-                <% }
-                %>
+                <a href="/show/<%=games[i]._id%>" ><div >
+                    <div id="<%=games[i]._id%>" style="font-family:Consolas; font-size:15px; font-weight:bold; text-align:center"><%=games[i].title%></div>
+                    <img style="height:270px; width:200px;" src="<%=games[i].imageURL%>">
+                    
+                </div></a>
+                <% if (user) { %>
+                        <% if (user.vendor==true) { %>
+                            <div id="<%=games[i]._id%>" style="text-align:center;">Price:<input type="number" style="border: 2px solid black; width:100px" id="gamePrice"><input class="addButton" type="submit" value="Add"></div>
+                        <% } %>
+                    <% } %>
             </div>
     <% } %>
     </div>
 
     <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/views/Javascripts/ViewGames.js"></script>
-    
+    <script>
+        var addGame=
+        {   
+            gameID:"",
+            storeID:"",
+            price:""
+        }
+        
+        $(".addButton").click(function(){
+            alert("test");
+            var gameId=$(this).parent().attr("id");
+            var userID= $("#userid").val();
+            var gamePrice=$(this).siblings().val();
+            console.log(gameId);
+            console.log(gamePrice);
+            console.log("6666666" + userID);
+            
+            addGame.gameID=gameId;
+            addGame.storeID = userID;
+            addGame.price=gamePrice;
+            
+            if(gamePrice>0)
+            {
+                $.ajax({
+                    method:"POST",
+                    url:'/api/prices',
+                    data: addGame
+                }).done(function(response){
+                    console.log(response);
+            //   window.location.replace("/products/"+response._id);
+                }).fail(function(response){
+            //   $("#error").text(JSON.parse(response.responseText).message);
+                console.log("This is the problem: " + JSON.parse(response.responseText).message);
+                });   
+            }
+        });
+
+    </script>
     </body>
 </head>
 

@@ -1,0 +1,70 @@
+body{
+    background-color: #ecf0f1;
+}
+
+
+#logo{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+#logo img{
+    width: 100%;
+}
+
+#login-container{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mdl-card__title h2{
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#signin-button{
+    box-sizing: border-box;
+    width: 100%;
+    color: #313E50;
+}
+
+#text-container{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#input-div{
+    width: 100%;  
+}
+
+
+@media only screen and (max-width: 900px){
+    #login-container{
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+@media only screen and (max-width: 550px){
+    #login-container{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #logo{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+}
+

@@ -1,3 +1,17 @@
+module.exports = function(app){
+
+ var stores = require('./../controllers/stores.server.controller.js');
+ var users = require('./../controllers/users.server.controller.js');
+
+app.route('/api/stores')
+    .get(stores.list)
+    .post(users.requiresLogin, stores.listByGenre);
+
+app.param('storeId', stores.storeByID);
+};
+
+
+
 // module.exports = function(app){
 
 //  var articles = require('./../controllers/articles.server.controller.js');
@@ -22,33 +36,24 @@
 
 // app.param('articleId', articles.articleByID);
 // };
-module.exports = function(app){
-
- var games = require('./../controllers/games.server.controller.js');
- var users = require('./../controllers/users.server.controller.js');
 
 //  app.route('/articles/list')
 // 	.get(articles.listview);
  
  
- app.route('/api/games')
-	.get(games.list)
-	.post(users.requiresLogin, games.create);
+//  app.route('/api/games')
+// 	.get(games.list)
+// 	.post(users.requiresLogin, games.create);
 
-  app.route('/api/games/:gameId')
-	.get(games.read)
+//   app.route('/api/games/:gameId')
+// 	.get(games.read)
 //   .delete(users.requiresLogin, games.delete);
 
-	app.route('/api/games/edit/:gameId')
-	.get(games.read)
-	.put(users.requiresLogin, games.update);
+// 	app.route('/api/games/edit/:gameId')
+// 	.get(games.read)
+// 	.put(users.requiresLogin, games.update);
 	
-app.route('/games/new').get(games.new);
-app.route('/games/all/:genre').get(games.listByGenre);
-app.route('/show/:gameId').get(games.gameByID);
+// app.route('/games/new').get(games.new);
+// app.route('/games/all/:genre').get(games.listByGenre);
 
 
-
-
-app.param('gameId', games.gameByID);
-};
